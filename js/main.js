@@ -10,10 +10,16 @@ window.onload = () => {
 
 // Ajout des contenus HTML dans la page pour chaque item produit
 async function initItems() {
-    let items = await fetchAPI('/teddies');
-    let urlIndexProduct = 'pages/product.html';
-    for(let i = 0; i < items.length; i++) {
-        await appendItemInViewDropdownMenu(items[i], urlIndexProduct);
-        await appendItemInViewIndex(items[i]);
+    try {
+        let items = await fetchAPI('/teddies');
+        let urlIndexProduct = 'pages/product.html';
+        let i = 0;
+        for(;i < items.length; i++) {
+            appendItemInViewIndex(items[i]);
+            appendItemInViewDropdownMenu(items[i], urlIndexProduct);
+        }
+        return i;
+    }catch(err) {
+        alert(err);
     }
 }

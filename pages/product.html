@@ -8,6 +8,7 @@
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Finger+Paint&display=swap" rel="stylesheet">
 
     <!-- KIT FONT AWESOME -->
     <script src="https://kit.fontawesome.com/d207a79af7.js"></script>
@@ -28,7 +29,7 @@
         <div class="heading__nav-container bgc-primary fixed-top">
             <div class="row">
                 <div class="heading__logo-box">
-                    <img src="https://res.cloudinary.com/djcmfi03h/image/upload/w_200,h_55,f_auto/v1581859140/Orinoco/Logo_Orinoco_om50zd.png" alt="Logo Orinoco" class="heading__logo-img">
+                    <img src="https://res.cloudinary.com/djcmfi03h/image/upload/w_175,h_45,f_auto/v1581859140/Orinoco/Logo_Orinoco_om50zd.png" alt="Logo Orinoco" class="heading__logo-img">
                 </div>
     
                 <nav class="navbar navbar-expand-sm ml-auto">
@@ -47,7 +48,11 @@
                                 Produits
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="products-menu-list">
-                                
+                                <a class="dropdown-item" href=""></a>
+                                <a class="dropdown-item" href=""></a>
+                                <a class="dropdown-item" href=""></a>
+                                <a class="dropdown-item" href=""></a>
+                                <a class="dropdown-item" href=""></a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -61,10 +66,10 @@
         <div class="heading__primary">
             <div class="heading__primary-container">
                 <h1 class="heading__primary-main">
-                    La solution idéale en matière de site e-commerce.
+                    Orinoco, la nouvelle solution alternative en matière de site e-commerce.
                 </h1>
                 <h2 class="heading__primary-sub">
-                    Orinoco est la meilleure solution alternative e-commerce proposant des applications thématiques. 
+                    Bienvenue sur Oriteddy, notre thématique de vente d'ours en peluche faits main. 
                 </h2>
             </div>
         </div>
@@ -72,39 +77,101 @@
 
     <main>
         <section class="section-item container">
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-6 item-img">
+            <div class="row justify-content-center item-container">
+                <div class="col-md-12 col-lg-6 item-img">
+
                     <div class="item__img-box" id="product-img">
                         <!-- Ajout dynamique de l'image du produit -->
                     </div>
+
                 </div>
-                <div class="col-sm-12 col-md-6 item-infos">
+                <div class="col-md-12 col-lg-6 item-infos tc-primary">
+
                     <div class="item__name">
                         <h2 class="item__name-title" id="product-name">
                             Ours en peluche - <!-- + Ajout dynamique du nom du produit -->
                         </h2>
                     </div>
+
                     <div class="item__description">
                         <h3 class="item__description-title">Description :</h3>
-                        <p id="product-description">
+                        <p class="item__description-text" id="product-description">
                             <!-- Ajout dynamique de la description du produit -->
                         </p>
                     </div>
+
                     <div class="item__color">
-                        <label class="item__color-title" for="color-select">Choisir une couleur :</label>
+                        <label class="item__color-title" for="color-select">Couleur :</label>
+
                         <select name="color" id="color-select" class="custom-select">
                             <!-- Ajout dynamique de la liste des couleurs disponibles pour le produit -->
                         </select>
                     </div>
-                    <div class="item__price">
+
+                    <div class="item__qty">
+                        <label for="quantity" class="item__qty-title">Quantité :</label>
+
+                        <select class="item__qty-select" name="quantity" id="quantity">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div>
                         <p class="item__price" id="product-price">
                             <!-- Ajout dynamique du prix du produit --> 
                         </p>
                     </div>
+
+                    <div class="item__btn">
+                        <button type="button" class="btn btn-brown btn-lg" id="btn-cart">
+                            <i class="fas fa-cart-plus"></i>
+                            Ajouter au panier
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer__infos">
+            <ul class="footer__infos-list">
+                <li>
+                    <a href="" class="footer__infos-link">A propos</a>
+                </li>
+                <li>
+                    <a href="" class="footer__infos-link">Conditions</a>
+                </li>
+                <li>
+                    <a href="" class="footer__infos-link">F.A.Q.</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__heading">
+            <h2 class="footer__heading-title">Oriteddy</h2>
+        </div>
+        <div class="footer__social">
+            <ul class="footer__social-list">
+                <li class="footer__social-link">
+                    <a href="#">Facebook</a>
+                    <i class="fab fa-facebook"></i>
+                </li>
+                <li class="footer__social-link">
+                    <a href="#">Instagram</a>
+                    <i class="fab fa-instagram"></i>
+                </li>
+                <li class="footer__social-link">
+                    <a href="#">Twitter</a>
+                    <i class="fab fa-twitter"></i>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="../js/product.js" type="module" defer></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
