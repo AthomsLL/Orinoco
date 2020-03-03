@@ -2,20 +2,9 @@
 import {appendItemInfosInViewProduct} from './modules/appendInfosProduct.js';
 import {appendItemColorsInViewProduct} from './modules/appendColorsProduct.js';
 import {appendItemInViewDropdownMenu} from './modules/appendNavItems.js';
+import {Id} from './modules/getUrlParamId.js';
 import {fetchAPI} from './modules/fetchAPI.js';
-
-// On récupère la valeur de l'URL parameter équivalant à "id= ..." et on la stocke dans une constante
-function getUrlParam(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-};
-
-const Id = getUrlParam('id');
-console.log(Id);
-
-/* const Id = new URLSearchParams(window.location.search).get('id'); */
+import {addCartToLocalStorage} from './modules/addToCart.js';
 
 // Lancement des fonctions quand la page "Produit" est chargée
 window.onload = () => {
@@ -28,15 +17,28 @@ async function initProduct() {
         let urlProduct = 'product.html';
         let items = await fetchAPI('/teddies');
         let product = await fetchAPI(`/teddies/${Id}`);
+        let i = 0
 
-        for (let i = 0; i < items.length; i++) {
+        for ( i ; i < items.length; i++) {
             appendItemInViewDropdownMenu(items[i], urlProduct);
         }
 
         appendItemInfosInViewProduct(product);
         appendItemColorsInViewProduct(product);
+        addCartToLocalStorage(product);
+
+        console.log(i);
+
+        return i;
     }catch(err) {
-        alert(err);
+        Swal.fire({
+            title: 'Désolé',
+            text: 'Le teddy demandé est absent pour le moment. Merci de réessayer plus tard.',
+            imageUrl: 'https://res.cloudinary.com/djcmfi03h/image/upload/w_400,f_auto/v1583233217/Orinoco/ourson_triste_sxvkwe.jpg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Image d'un teddy",
+        })
     }
 }
 

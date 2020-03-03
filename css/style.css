@@ -54,13 +54,21 @@ a:hover {
 /****************** UTILITIES *******************/
 /**********************************************/
 .bgc-primary {
-    background-color: #f3e9f1;
+    background-color: #f3e9f1 !important;
 }
+
+.mb-small {
+    margin-bottom: 3rem !important;
+}
+
+.pb-small {
+    padding-bottom: 1rem !important;
+}
+
 
 .tc-primary {
-    color: #261624;
+    color: #261624 !important;
 }
-
 
 /**********************************************/
 /******************* HEADER ********************/

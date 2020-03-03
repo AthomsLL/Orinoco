@@ -33,6 +33,13 @@ export function appendItemInViewIndex(item) {
                 </div>
             </article>`;
     }catch(err) {
-        alert(err);
+        Swal.fire({
+            title: 'Désolé',
+            text: 'Les teddies sont absents pour le moment. Merci de réessayer plus tard.',
+            imageUrl: 'https://res.cloudinary.com/djcmfi03h/image/upload/w_400,f_auto/v1583233217/Orinoco/ourson_triste_sxvkwe.jpg',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Image de teddy',
+          })
     }
 }

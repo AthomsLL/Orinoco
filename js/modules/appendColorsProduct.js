@@ -9,6 +9,10 @@ export function appendItemColorsInViewProduct(product) {
             `;
         }
     }catch(err) {
-        alert(err);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oups...',
+            text: "Impossible d'afficher les couleurs pour ce produit.",
+          })
     }
 }

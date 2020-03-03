@@ -4,11 +4,11 @@ import {appendItemInViewDropdownMenu} from './modules/appendNavItems.js';
 
 // Lancement des fonctions quand la page "Produit" est chargée
 window.onload = () => {
-    initCart();
+    initOrder();
 }
 
 // Ajout des contenus HTML dans la page produit pour un produit spécifique
-async function initCart() {
+async function initOrder() {
     try {
         let urlProduct = 'product.html';
         let items = await fetchAPI('/teddies');
@@ -25,7 +25,7 @@ async function initCart() {
         Swal.fire({
             icon: 'error',
             title: 'Oups...',
-            text: "Une erreur est survenue pendant l'affichage du panier. Merci de réessayer plus tard.",
+            text: "Une erreur est survenue pendant la confirmation de commande. Merci de réessayer plus tard.",
           })
     }
 }

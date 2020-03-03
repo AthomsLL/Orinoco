@@ -18,6 +18,10 @@ export function appendItemInfosInViewProduct(product) {
         // Insertion du prix du produit 
         productPrice.textContent = `${product.price / 100} €`;
     }catch(err) {
-        alert(err);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oups...',
+            text: "Impossible d'afficher les informations du produit. Merci de réessayer plus tard",
+          })
     }
 }

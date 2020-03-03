@@ -13,6 +13,10 @@ export async function fetchAPI(endpoint, method='get', body=null) {
     console.log("donnees api", jsonResponse);
     return jsonResponse;
    }catch(err) {
-       alert(err);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oups une erreur est survenue.',
+            text: "Impossible de communiquer avec l'API.",
+        })
    }
 }
