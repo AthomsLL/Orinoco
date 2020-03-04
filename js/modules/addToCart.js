@@ -45,11 +45,18 @@ export function addCartToLocalStorage(product) {
                 localStorage.setItem('cart', JSON.stringify(cart));
             }
 
-            alert('Ajouté au panier !');
-            console.log(localStorage);
-
+            // Affichage d'un message de succès lors de l'ajout du produit dans le panier
+            Swal.fire(
+                'Merci !',
+                'Votre produit a bien été ajouté au panier.',
+                'success'
+            )
         })
     } catch (err) {
-        
+        Swal.fire({
+            icon: 'error',
+            title: 'Oups...',
+            text: "Impossible d'ajouter ce produit au panier.",
+        })
     }
 }

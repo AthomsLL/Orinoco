@@ -105,6 +105,25 @@ nav.navbar .navbar-toggler {
     outline: none !important;
 }
 
+.cart-item {
+    position: relative;
+}
+
+.cart-qty {
+    background-color: #261624;
+    border-radius: 30%;
+    color: #f3e9f1;
+    font-size: 1.3rem;
+    padding: 0 .5rem;
+    position: absolute;
+    right: -15px;
+    top: 0;
+    -webkit-border-radius: 30%;
+    -moz-border-radius: 30%;
+    -ms-border-radius: 30%;
+    -o-border-radius: 30%;
+}
+
 .heading__primary {
     background-image: 
         linear-gradient(to bottom, rgba(243, 233, 241, 0.45), rgba(243, 233, 241, 0.45)), 

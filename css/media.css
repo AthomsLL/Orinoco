@@ -125,6 +125,10 @@
 
 @media screen and (max-width: 576px) {
     /* HEADER */
+    .cart-qty {
+        right: 52px;
+    }
+
     .heading__primary-main {
         font-size: 2.8rem;
         margin-bottom: 3rem;
