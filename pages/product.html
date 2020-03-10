@@ -24,12 +24,12 @@
     <title>Orinoco - Page Produit</title>
 </head>
 <body>
-
+        
     <header class="heading bgc-primary">
         <div class="heading__nav-container bgc-primary fixed-top">
             <div class="row">
                 <div class="heading__logo-box">
-                    <a href="index.html">
+                    <a href="../index.html">
                         <img src="https://res.cloudinary.com/djcmfi03h/image/upload/w_175,h_45,f_auto/v1581859140/Orinoco/Logo_Orinoco_om50zd.png" alt="Logo Orinoco" class="heading__logo-img">
                     </a>
                 </div>
@@ -54,14 +54,15 @@
                                 </div>
                             </li>
                             <li class="nav-item cart-item">
-                                <a class="nav-link" href="pages/cart.html">Panier</a>
+                                <a class="nav-link" href="cart.html">Panier</a>
                                 <div class="cart-qty">0</div>
                             </li>
                         </ul>
                     </div>
-                    </nav>
+                </nav>
             </div>
         </div>
+        
         <div class="heading__primary">
             <div class="heading__primary-container">
                 <h1 class="heading__primary-main">
@@ -74,10 +75,14 @@
         </div>
     </header>
 
-    <main>
+    <div class="alert alert-success text-center item-confirm" role="alert">
+        
+    </div>
+
+    <main class="main-item">
         <section class="section-item container">
             <div class="row justify-content-center item-container">
-                <div class="col-md-12 col-lg-6 item-img">
+                <div class="col-md-12 col-lg-6 item__img">
 
                     <div class="item__img-box" id="product-img">
                         <!-- Ajout dynamique de l'image du produit -->
@@ -131,7 +136,6 @@
                             Ajouter au panier
                         </button>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -172,7 +176,7 @@
         </div>
     </footer>
 
-    <script src="../js/product.js" type="module" defer></script>
+    <script src="../js/product.js" type="module"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

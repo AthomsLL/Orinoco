@@ -1,13 +1,15 @@
 //IMPORTS
+import {sendCartToLocalStorage} from './cartToLocalStorage.js';
+import {numberOfItemsInCart} from './nbItemsInCart.js';
+import {successMessage} from './successMessage.js';
 import {Id} from './getUrlParamId.js';
 
 // Ajout des produits au panier en stockant dans le localStorage
 export function addCartToLocalStorage(product) {
     try {
 
-        //VARIABLES
         // Stockage du bouton 'Ajouter au panier' dans une variable
-        let btnCart = document.getElementById('btn-cart');
+        const btnCart = document.getElementById('btn-cart');
 
         // Déclenchement des évènements au clic sur le bouton 'Ajouter au panier'
         btnCart.addEventListener("click", () => {
@@ -19,8 +21,8 @@ export function addCartToLocalStorage(product) {
             let name = `${product.name}`;
             let price = `${product.price / 100}`;
 
-            // Stockage du contenu du localStorage dans une variable "cart", si le contenu du localStorage est vide, crée un array à la place
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            // Récupération de la div qui contiendra le message de confirmation d'ajout au panier et stockage dans une variable
+            let confirmedMessage = document.querySelector('.item-confirm');
 
             // Création de l'objet contenant les informations du produit qui sera stocké dans le localStorage
             let infosObject = {
@@ -32,25 +34,14 @@ export function addCartToLocalStorage(product) {
                 "price" : price
             };
 
-            // Condition pour véirifer si le panier est vide
-            if(!cart) {
-                // Insertion des informations du produit à ajouter au localStorage
-                localStorage.setItem('cart', JSON.stringify(infosObject));
-            } else {
+            // Appel de la fonction récupérant et envoyant le panier au localStorage 
+            sendCartToLocalStorage(infosObject);
 
-                // Sinon rajout des informations du produit cliqué à l'objet 'infosObject'
-                cart.push(infosObject);
+            // Appel de la fonction mettant à jour le nombre de produits dans le panier dans le menu
+            numberOfItemsInCart();
 
-                // Puis insertion du nouvel objet mis à jour dans le localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-            }
-
-            // Affichage d'un message de succès lors de l'ajout du produit dans le panier
-            Swal.fire(
-                'Merci !',
-                'Votre produit a bien été ajouté au panier.',
-                'success'
-            )
+            // Appel de la fonction affichant le message de confirmation d'ajout au panier
+            successMessage(confirmedMessage, 'Merci. Votre produit a bien été ajouté au panier !');
         })
     } catch (err) {
         Swal.fire({

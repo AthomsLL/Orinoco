@@ -21,7 +21,7 @@ export function appendItemInfosInViewProduct(product) {
         Swal.fire({
             icon: 'error',
             title: 'Oups...',
-            text: "Impossible d'afficher les informations du produit. Merci de réessayer plus tard",
+            html: "Impossible d'afficher les informations du produit. <br/> Merci de réessayer plus tard",
           })
     }
 }

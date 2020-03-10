@@ -24,6 +24,22 @@ a:hover {
     color: #000;
 }
 
+button {
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+}
+
+button:active {
+    transform: scale(.97);
+    -webkit-transform: scale(.97);
+    -moz-transform: scale(.97);
+    -ms-transform: scale(.97);
+    -o-transform: scale(.97);
+}
+
 .btn {
     border-radius: 3rem;
     font-size: 2.2rem;
@@ -47,6 +63,12 @@ a:hover {
 .btn-brown:hover {
     background-color: #7e6660;
     color: #fff;
+}
+
+.section-products,
+.section-item, 
+.section-cart {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -78,8 +100,9 @@ a:hover {
 }
 
 .heading__nav-container {
-    padding: 0 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
+    height: 5.7rem;
+    padding: 0 2rem;
 }
 
 nav.navbar .navbar-toggler {
@@ -161,7 +184,6 @@ nav.navbar .navbar-toggler {
     align-items: center;
     display: flex;
     flex-direction: column;
-    font-family: 'Josefin Sans', sans-serif;
     padding: 3rem;
 }
 
@@ -191,8 +213,8 @@ nav.navbar .navbar-toggler {
     width: 100%;
 }
 
+/* FONCTIONNALITÉ DE LA CARTE */
 .card {
-    /* FONCTIONNALITÉ DE LA CARTE */
     color: #261624;
     height: 50rem;
     margin-bottom: 6rem;
@@ -386,6 +408,161 @@ nav.navbar .navbar-toggler {
 .item__price, 
 .item__btn {
     text-align: center;
+}
+
+
+/************************************************/
+/**************** MAIN CART.HTML *****************/
+/************************************************/
+.section-cart {
+    background-color: rgba(243,233,241, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .15);
+    margin: 5rem auto;
+    padding: 3rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.section-cart--title {
+    font-size: 5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.cart-container {
+    margin-bottom: 3rem;
+}
+
+.cart__item-container {
+    border: 1px solid rgba(0, 0, 0, .25);
+    border-radius: 5px;
+    box-shadow: 1px 0 3px 0 rgba(0, 0, 0, .25);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.cart__item-img--box {
+    width: 20rem;
+}
+
+.cart__item-img--box img {
+    height: 100%;
+    width: 100%;
+}
+
+.cart__item-infos, 
+.cart__item-total-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart__item-name {
+    margin-bottom: .8rem;
+    padding-top: .4rem;
+}
+
+.cart__item-total-price {
+    justify-content: center;
+    align-items: center;
+}
+
+.cart__item-total-price--title {
+    text-align: center;
+}
+
+.cart__item-total-price p {
+    font-size: 5rem;
+}
+
+.cart__item-cta {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: -21px;
+    top: -15px;
+}
+
+.cart__item-cta:hover {
+    transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+}
+
+.cart__item-cta:active {
+    transform: scale(.90, .90);
+    -webkit-transform: scale(.90, .90);
+    -moz-transform: scale(.90, .90);
+    -ms-transform: scale(.90, .90);
+    -o-transform: scale(.90, .90);
+}
+
+.cart__item-cta:focus {
+    outline-style: none;
+}
+
+.fa-times-circle {
+    background-color: #f3e9f1;
+    border-radius: 50%;
+    color: #261624;
+    font-size: 2.8rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.cart__item-cta:hover .fa-times-circle{
+    background-color: #fff;
+    color: #dc3545;
+}
+
+.cart-total-cost {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.cart-total-cost--title {
+    font-size: 4rem;
+}
+
+.cart-total-cost--text {
+    font-size: 8rem;
+    font-weight: 500;
+}
+
+.cart-form {
+    font-size: 2.2rem;
+}
+
+.cart-form--title {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.cart-form input {
+    font-size: 1.7rem;
+}
+
+.form-cta {
+    text-align: center;
+}
+
+.btn-form {
+    font-size: 2.5rem;
+    margin-top: 2rem;
 }
 
 
