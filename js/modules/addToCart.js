@@ -1,8 +1,8 @@
 //IMPORTS
 import {sendCartToLocalStorage} from './cartToLocalStorage.js';
 import {numberOfItemsInCart} from './nbItemsInCart.js';
-import {successMessage} from './successMessage.js';
-import {Id} from './getUrlParamId.js';
+import {appearSuccessMessageAddToCart} from './successMessageAddToCart.js';
+import {Id} from './helpers/getUrlParamId.js';
 
 // Ajout des produits au panier en stockant dans le localStorage
 export function addCartToLocalStorage(product) {
@@ -41,7 +41,7 @@ export function addCartToLocalStorage(product) {
             numberOfItemsInCart();
 
             // Appel de la fonction affichant le message de confirmation d'ajout au panier
-            successMessage(confirmedMessage, 'Merci. Votre produit a bien été ajouté au panier !');
+            appearSuccessMessageAddToCart(confirmedMessage);
         })
     } catch (err) {
         Swal.fire({

@@ -92,6 +92,29 @@ button:active {
     color: #261624 !important;
 }
 
+
+/**********************************************/
+/***************** KEYFRAMES ******************/
+/**********************************************/
+@keyframes appearConfirmedMessage {
+    35%, 70%  {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10rem);
+        -webkit-transform: translateY(-10rem);
+        -moz-transform: translateY(-10rem);
+        -ms-transform: translateY(-10rem);
+        -o-transform: translateY(-10rem);
+    }
+}
+
+
 /**********************************************/
 /******************* HEADER ********************/
 /**********************************************/
@@ -409,6 +432,21 @@ nav.navbar .navbar-toggler {
 .item__btn {
     text-align: center;
 }
+
+.item-confirm {
+    transform: translateY(-10rem);
+    width: 100%;
+    -webkit-transform: translateY(-10rem);
+    -moz-transform: translateY(-10rem);
+    -ms-transform: translateY(-10rem);
+    -o-transform: translateY(-10rem);
+    z-index: 1;
+}
+
+.item-confirm-clicked {
+    animation: appearConfirmedMessage 6s ease;
+    -webkit-animation: appearConfirmedMessage 6s ease;
+} 
 
 
 /************************************************/

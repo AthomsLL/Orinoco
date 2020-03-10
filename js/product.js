@@ -3,7 +3,7 @@ import {appendItemInfosInViewProduct} from './modules/appendInfosProduct.js';
 import {appendItemColorsInViewProduct} from './modules/appendColorsProduct.js';
 import {appendItemInViewDropdownMenu} from './modules/appendItemsToNav.js';
 import {numberOfItemsInCart} from './modules/nbItemsInCart.js';
-import {Id} from './modules/getUrlParamId.js';
+import {Id} from './modules/helpers/getUrlParamId.js';
 import {fetchAPI} from './modules/fetchAPI.js';
 import {addCartToLocalStorage} from './modules/addToCart.js';
 
