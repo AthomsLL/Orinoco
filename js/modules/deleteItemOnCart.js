@@ -15,26 +15,26 @@ export function deleteItemOnCart() {
 
         for(let n = 0; n < cartItems.length; n++) {
             if(cartItems[n].id == id && cartItems[n].color == color) {
-                var deleteIndex = n;
+                let deleteIndex = n;
+
+                buttonsDelete[i].addEventListener("click", () => {
+                    // On retire l'index du produit à supprimer
+                    cartItems.splice(deleteIndex, 1);
+        
+                    // Puis on renvoie le panier mis à jour au localStorage
+                    localStorage.setItem("cart", JSON.stringify(cartItems));
+        
+                    // Affichage d'un message de confirmation de suppression
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Le produit a bien été supprimé du panier !',
+                      })
+        
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000);
+                })
             }
-        }
-
-        buttonsDelete[i].addEventListener("click", () => {
-            // On retire l'index du produit à supprimer
-            cartItems.splice(deleteIndex, 1);
-
-            // Puis on renvoie le panier mis à jour au localStorage
-            localStorage.setItem("cart", JSON.stringify(cartItems));
-
-            // Affichage d'un message de confirmation de suppression
-            Swal.fire(
-                'Good job!',
-                'Le produit a bien été supprimé de votre panier !',
-            );
-
-            setTimeout(() => {
-                window.location.reload()
-            }, 1000);
-        })
+        }        
     }
 }

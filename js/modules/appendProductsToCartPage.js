@@ -11,7 +11,7 @@ export function appendProductsInViewCart() {
     let cartContainer = document.getElementById('cart-container');
 
     // Si le panier est vide, on affiche le titre "Votre panier est vide"
-    if(cartItems.length < 1) {
+    if(!cartItems || cartItems.length < 1) {
         title.textContent = 'Votre panier est vide';
     
     // Sinon on affiche le titre "Votre panier :" + la liste des produits stockés dans le localStorage en dessous

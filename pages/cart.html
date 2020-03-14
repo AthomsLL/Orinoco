@@ -86,20 +86,20 @@
                 <div class="row justify-content-center cart-form">
                     <h3 class="cart-form--title">Veuillez indiquer vos informations :</h3>
                     <div class="col-md-12">
-                        <form>
+                        <form id="form">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="firstname">Prénom :</label>
-                                    <input type="text" class="form-control" id="firstname" required>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Votre prénom..."required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="name">Nom :</label>
-                                    <input type="text" class="form-control" id="name" required>
+                                    <input type="text" class="form-control" id="name" placeholder="Votre nom..." required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email :</label>
-                                <input type="email" class="form-control" id="email" placeholder="toto@toto.fr" required>
+                                <input type="email" class="form-control" id="email" placeholder="Votre email@email.fr" required>
                             </div>
                             <div class="form-group">
                                 <label for="address">Adresse :</label>
@@ -108,15 +108,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-9">
                                     <label for="city">Ville :</label>
-                                    <input type="text" class="form-control" id="city" required>
+                                    <input type="text" class="form-control" id="city" placeholder="Votre ville..." required>
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="zipCode">Code Postal :</label>
-                                    <input type="text" class="form-control" id="zipCode">
+                                    <input type="text" class="form-control" id="zipCode" maxlength="5" pattern="[0-9]+" required>
                                 </div>
                             </div>
                             <div class="form-cta">
-                                <button type="submit" class="btn btn-brown btn-form">
+                                <button type="button" class="btn btn-brown btn-form" id="btn-order">
                                     <i class="far fa-check-circle"></i>
                                     Valider la commande
                                 </button>

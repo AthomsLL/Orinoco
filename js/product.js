@@ -19,6 +19,8 @@ async function initProduct() {
     let product = await fetchAPI(`/teddies/${Id}`);
     let i = 0
 
+    /* let teddyBear = new teddyBear(product.name) */
+
     for ( i ; i < items.length; i++) {
         appendItemInViewDropdownMenu(items[i], urlProduct);
     }

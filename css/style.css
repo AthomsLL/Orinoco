@@ -92,12 +92,16 @@ button:active {
     color: #261624 !important;
 }
 
+.swal2-popup {
+    font-size: 2rem !important;
+}
+
 
 /**********************************************/
 /***************** KEYFRAMES ******************/
 /**********************************************/
 @keyframes appearConfirmedMessage {
-    35%, 70%  {
+    0%, 50%  {
         transform: translateY(0);
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
@@ -106,12 +110,12 @@ button:active {
     }
 
     100% {
-        transform: translateY(-10rem);
-        -webkit-transform: translateY(-10rem);
-        -moz-transform: translateY(-10rem);
-        -ms-transform: translateY(-10rem);
-        -o-transform: translateY(-10rem);
-    }
+        transform: translateY(-40rem);
+        -webkit-transform: translateY(-40rem);
+        -moz-transform: translateY(-40rem);
+        -ms-transform: translateY(-40rem);
+        -o-transform: translateY(-40rem);
+}
 }
 
 
@@ -149,6 +153,11 @@ nav.navbar .navbar-toggler {
 
 .navbar-toggler {
     outline: none !important;
+}
+
+.navbar-collapse,
+.dropdown-menu {
+    background-color: #f3e9f1;
 }
 
 .cart-item {
@@ -434,18 +443,18 @@ nav.navbar .navbar-toggler {
 }
 
 .item-confirm {
-    transform: translateY(-10rem);
+    transform: translateY(-40rem);
     width: 100%;
-    -webkit-transform: translateY(-10rem);
-    -moz-transform: translateY(-10rem);
-    -ms-transform: translateY(-10rem);
-    -o-transform: translateY(-10rem);
+    -webkit-transform: translateY(-40rem);
+    -moz-transform: translateY(-40rem);
+    -ms-transform: translateY(-40rem);
+    -o-transform: translateY(-40rem);
     z-index: 1;
 }
 
 .item-confirm-clicked {
-    animation: appearConfirmedMessage 6s ease;
-    -webkit-animation: appearConfirmedMessage 6s ease;
+    animation: appearConfirmedMessage 6s ease-in-out;
+    -webkit-animation: appearConfirmedMessage 6s ease-in-out;
 } 
 
 
@@ -592,6 +601,18 @@ nav.navbar .navbar-toggler {
 
 .cart-form input {
     font-size: 1.7rem;
+}
+
+.cart-form input:focus {
+    outline: none;
+}
+
+.cart-form input:invalid {
+    border-left: 6px solid #a53b3b;
+}
+
+.cart-form input:valid {
+    border-left: 6px solid #3ea53b;
 }
 
 .form-cta {

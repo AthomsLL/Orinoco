@@ -4,6 +4,7 @@ import {appendItemInViewDropdownMenu} from './modules/appendItemsToNav.js';
 import {numberOfItemsInCart} from './modules/nbItemsInCart.js';
 import {appendProductsInViewCart} from './modules/appendProductsToCartPage.js';
 import {deleteItemOnCart} from './modules/deleteItemOnCart.js';
+import {postOrderToAPI} from './modules/postOrder.js';
 import {appendCartTotalCostInViewCart} from './modules/appendCartTotalCostToCartPage.js';
 
 // Lancement des fonctions quand la page "Produit" est chargée
@@ -25,6 +26,7 @@ export async function initCart() {
     appendCartTotalCostInViewCart();
     numberOfItemsInCart();
     deleteItemOnCart();
+    postOrderToAPI();
 
     return i;
 }
