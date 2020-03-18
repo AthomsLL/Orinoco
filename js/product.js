@@ -1,11 +1,12 @@
 // IMPORTS
-import {appendItemInfosInViewProduct} from './modules/appendInfosProduct.js';
-import {appendItemColorsInViewProduct} from './modules/appendColorsProduct.js';
-import {appendItemInViewDropdownMenu} from './modules/appendItemsToNav.js';
-import {numberOfItemsInCart} from './modules/nbItemsInCart.js';
+import {appendItemInfosInViewProduct} from './modules/product/appendInfosProduct.js';
+import {appendItemColorsInViewProduct} from './modules/product/appendColorsProduct.js';
+import {appendItemInViewDropdownMenu} from './modules/helpers/appendItemsToNav.js';
+import {numberOfItemsInCart} from './modules/helpers/nbItemsInCart.js';
 import {Id} from './modules/helpers/getUrlParamId.js';
 import {fetchAPI} from './modules/fetchAPI.js';
-import {addCartToLocalStorage} from './modules/addToCart.js';
+import {addCartToLocalStorage} from './modules/product/addToCart.js';
+import {TeddyBear} from './objects/TeddyBear.js';
 
 // Lancement des fonctions quand la page "Produit" est chargée
 window.onload = () => {
@@ -16,18 +17,28 @@ window.onload = () => {
 async function initProduct() {
     let urlProduct = 'product.html';
     let items = await fetchAPI('/teddies');
+    let teddyBears = [];
+
+    items.forEach((teddyBear) => {
+        teddyBear = new TeddyBear(teddyBear._id, teddyBear.imageUrl, teddyBear.name, teddyBear.description, teddyBear.colors, teddyBear.price);
+        teddyBears.push(teddyBear);
+        console.log(teddyBear);
+    })
+
     let product = await fetchAPI(`/teddies/${Id}`);
+
+    let teddyBear = new TeddyBear(product._id, product.imageUrl, product.name, product.description, product.colors, product.price);
+    console.log(teddyBear);
+    
     let i = 0
 
-    /* let teddyBear = new teddyBear(product.name) */
-
-    for ( i ; i < items.length; i++) {
-        appendItemInViewDropdownMenu(items[i], urlProduct);
+    for ( i ; i < teddyBears.length; i++) {
+        appendItemInViewDropdownMenu(teddyBears[i], urlProduct);
     }
 
-    appendItemInfosInViewProduct(product);
-    appendItemColorsInViewProduct(product);
-    addCartToLocalStorage(product);
+    appendItemInfosInViewProduct(teddyBear);
+    appendItemColorsInViewProduct(teddyBear);
+    addCartToLocalStorage(teddyBear);
     numberOfItemsInCart();
 
     return i;

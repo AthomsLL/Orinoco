@@ -14,4 +14,7 @@ function getUrlParam(name) {
     }
 };
 
+console.log(getUrlParam('id'));
+
+
 export const Id = getUrlParam('id');

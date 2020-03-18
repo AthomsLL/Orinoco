@@ -1,11 +1,12 @@
 // IMPORTS
 import {fetchAPI} from './modules/fetchAPI.js';
-import {appendItemInViewDropdownMenu} from './modules/appendItemsToNav.js';
-import {numberOfItemsInCart} from './modules/nbItemsInCart.js';
-import {appendProductsInViewCart} from './modules/appendProductsToCartPage.js';
-import {deleteItemOnCart} from './modules/deleteItemOnCart.js';
-import {postOrderToAPI} from './modules/postOrder.js';
-import {appendCartTotalCostInViewCart} from './modules/appendCartTotalCostToCartPage.js';
+import {appendItemInViewDropdownMenu} from './modules/helpers/appendItemsToNav.js';
+import {numberOfItemsInCart} from './modules/helpers/nbItemsInCart.js';
+import {appendProductsInViewCart} from './modules/cart/appendProductsToCartPage.js';
+import {deleteItemOnCart} from './modules/cart/deleteItemOnCart.js';
+import {postOrderToAPI} from './modules/cart/postOrder.js';
+import {appendCartTotalCostInViewCart} from './modules/cart/appendCartTotalCostToCartPage.js';
+import {TeddyBear} from './objects/TeddyBear.js';
 
 // Lancement des fonctions quand la page "Produit" est chargée
 window.onload = () => {
@@ -16,17 +17,25 @@ window.onload = () => {
 export async function initCart() {
     let urlProduct = 'product.html';
     let items = await fetchAPI('/teddies');
+    let teddyBears = [];
+
+    items.forEach((teddyBear) => {
+        teddyBear = new TeddyBear(teddyBear._id, teddyBear.imageUrl, teddyBear.name, teddyBear.description, teddyBear.colors, teddyBear.price);
+        teddyBears.push(teddyBear);
+        console.log(teddyBear);
+    })
+
     let i = 0
 
-    for ( i ; i < items.length; i++) {
-        appendItemInViewDropdownMenu(items[i], urlProduct);
+    for ( i ; i < teddyBears.length; i++) {
+        appendItemInViewDropdownMenu(teddyBears[i], urlProduct);
     }
 
     appendProductsInViewCart();
     appendCartTotalCostInViewCart();
-    numberOfItemsInCart();
     deleteItemOnCart();
     postOrderToAPI();
+    numberOfItemsInCart();
 
     return i;
 }

@@ -6,7 +6,7 @@ export function appendItemInViewIndex(item) {
             <article class="card col-md-5">
                 <div class="card__side card__side--front">
                     <div class="card__picture">
-                        <img src="${item.imageUrl}" alt="Image de l'ourson ${item.name}">
+                        <img src="${item.image}" alt="Image de l'ourson ${item.name}">
                     </div>
                     <h3 class="card__heading">
                         ${item.name}
@@ -25,13 +25,13 @@ export function appendItemInViewIndex(item) {
                             <p class="card__price-only">Seulement</p>
                             <p class="card__price-value">${item.price / 100} €</p>
                         </div>
-                        <a href="pages/product.html?id=${item._id}" class="btn btn-outline-danger">
+                        <a href="pages/product.html?id=${item.id}" class="btn btn-outline-danger">
                             <i class="far fa-eye"></i>
                             Voir le produit
                         </a>
                     </div>
                 </div>
-            </article>`;
+            </article>`;  
     }catch(err) {
         Swal.fire({
             title: 'Désolé',

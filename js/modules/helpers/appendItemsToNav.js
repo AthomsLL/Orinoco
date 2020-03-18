@@ -3,7 +3,7 @@ export function appendItemInViewDropdownMenu(item, url) {
     try {
         let dropdownList = document.getElementById('products-menu-list');
         dropdownList.innerHTML += `
-            <a class="dropdown-item" href="${url}?id=${item._id}">
+            <a class="dropdown-item" href="${url}?id=${item.id}">
                 ${item.name}
             </a>`;
     }catch(err) {

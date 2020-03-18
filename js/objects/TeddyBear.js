@@ -1,10 +1,10 @@
 export class TeddyBear {
-    constructor(id, image, name, description, colorList, price) {
+    constructor(id, image, name, description, colors, price) {
         this.id = id;
         this.image = image;
         this.name = name;
         this.description = description;
-        this.colorList = colorList;
+        this.colors = colors;
         this.price = price;
     }
 
@@ -24,8 +24,8 @@ export class TeddyBear {
         return this.description;
     }
 
-    get ColorList() {
-        return this.colorList;
+    get Colors() {
+        return this.colors;
     }
 
     get Price() {
@@ -33,10 +33,10 @@ export class TeddyBear {
     }
 
     set Quantity(quantity) {
-
+        quantity = document.getElementById('quantity').value;
     }
 
     set ChosenColor(color) {
-        
+        color = document.getElementById('color-select').value;
     }
 }

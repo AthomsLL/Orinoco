@@ -145,6 +145,23 @@
     .cart-total-cost--text {
         font-size: 6rem;
     }
+
+    /* MAIN ORDER.HTML */
+    .section-order--title {
+        font-size: 4rem;
+    }
+
+    .order__text {
+        font-size: 2rem;
+    }
+
+    #order-id {
+        font-size: 2.5rem;
+    }
+    
+    #total-cost {
+        font-size: 3.5rem;
+    }
 }
 
 
@@ -198,6 +215,20 @@
 
     .cart__item-total-price p{
         font-size: 4rem;
+    }
+
+    /* MAIN ORDER.HTML */
+    .section-order {
+        border-radius: 0;
+        margin: 0;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -ms-border-radius: 0;
+        -o-border-radius: 0;
+}
+
+    .section-order--title {
+        font-size: 3.5rem;
     }
 
     /* FOOTER */
@@ -268,6 +299,19 @@
 
     .cart-form--title {
         font-size: 3rem;
+    }
+
+    /* MAIN ORDER.HTML */
+    .section-order--title {
+        font-size: 3rem;
+    }
+
+    #order-id {
+        font-size: 2.2rem;
+    }
+    
+    #total-cost {
+        font-size: 3.2rem;
     }
 
     /* FOOTER */

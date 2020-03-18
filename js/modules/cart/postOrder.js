@@ -1,5 +1,5 @@
 /* IMPORTS */
-import { fetchAPI } from "./fetchAPI.js";
+import { fetchAPI } from "../fetchAPI.js";
 
 // Fonction permettant d'envoyer la commande au serveur
 export function postOrderToAPI() {
@@ -37,8 +37,12 @@ export function postOrderToAPI() {
 
         // Vérification que le formulaire est correctement rempli
         if(Form.checkValidity() == false) {
-            // Si ce n'est pas le cas :
-            alert('Veuillez remplir correctement le formulaire svp !');
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du formulaire :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci de compléter le formulaire avant de confirmer votre commande.",
+              })
         } else {
             // Sinon envoi de la commande au serveur
             let postOrder = await fetchAPI('/teddies/order', 'POST', JSON.stringify({contact, products}));
@@ -58,8 +62,10 @@ export function postOrderToAPI() {
             // Vidage du panier en supprimant le localStorage
             localStorage.clear();
 
-            // Redirection vers la page de confirmation de commande
-            window.location = 'order.html';
+            setTimeout(() => {
+                // Redirection vers la page de confirmation de commande
+                window.location = 'order.html';
+            }, 1000);
         }
     })
 }

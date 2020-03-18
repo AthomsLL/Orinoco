@@ -1,8 +1,8 @@
 //IMPORTS
 import {sendCartToLocalStorage} from './cartToLocalStorage.js';
-import {numberOfItemsInCart} from './nbItemsInCart.js';
+import {numberOfItemsInCart} from '../helpers/nbItemsInCart.js';
 import {appearSuccessMessageAddToCart} from './successMessageAddToCart.js';
-import {Id} from './helpers/getUrlParamId.js';
+import {Id} from '../helpers/getUrlParamId.js';
 
 // Ajout des produits au panier en stockant dans le localStorage
 export function addCartToLocalStorage(product) {
@@ -16,7 +16,7 @@ export function addCartToLocalStorage(product) {
             // Création des variables contenant les informations du produit à stocker
             let color = document.getElementById('color-select').value;
             let quantity = document.getElementById('quantity').value;
-            let image = `${product.imageUrl}`;
+            let image = `${product.image}`;
             let id = `${Id}`;
             let name = `${product.name}`;
             let price = `${product.price / 100}`;

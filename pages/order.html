@@ -3,7 +3,17 @@
     <head>
         <!-- META TAGS -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+        <meta name="description" content="Nous sommes Orinoco, la meilleure solution alternative en matière d'e-commerce">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+		<meta name="robots" content="max-snippet:[-1], max-image-preview: standard"/>
+		<meta property="og:title" content="Orinoco, la solution alternative en matière d'e-commerce"/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:description" content="Site Oriteddy, page de confirmation de commande."/>
+		<meta property="og:image" content="https://res.cloudinary.com/djcmfi03h/image/upload/w_175,h_45,f_auto/v1581859140/Orinoco/Logo_Orinoco_om50zd.png"/>
+		<meta property="og:locale" content="fr_FR"/>
     
         <!-- FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
@@ -29,7 +39,7 @@
             <div class="heading__nav-container bgc-primary fixed-top">
                 <div class="row">
                     <div class="heading__logo-box">
-                        <a href="index.html">
+                        <a href="../index.html">
                             <img src="https://res.cloudinary.com/djcmfi03h/image/upload/w_175,h_45,f_auto/v1581859140/Orinoco/Logo_Orinoco_om50zd.png" alt="Logo Orinoco" class="heading__logo-img">
                         </a>
                     </div>
@@ -72,9 +82,14 @@
         </header>
 
         <main>
-            <section class="section-cart container">
-                <div class="row justify-content-center cart-container">
-
+            <section class="section-order container">
+                <div class="row justify-content-center order-container">
+                    <h2 class="section-order--title">Commande confirmée !</h2>
+                    <p class="order__text">Merci pour votre commande <br/>
+                        N° <span id="order-id"></span>,<br/>
+                        d'un montant total de <span id="total-cost"></span>.<br/>
+                        Vous recevrez un email de confirmation dans les prochaines minutes.
+                    </p>
                 </div>    
             </section>
         </main>

@@ -7,7 +7,7 @@ export function appendItemInfosInViewProduct(product) {
         let productPrice = document.getElementById('product-price');
 
         // Insertion de l'image du produit
-        productImg.innerHTML += `<img src="${product.imageUrl}" alt="Image de l'ourson ${product.name}"/>`;
+        productImg.innerHTML += `<img src="${product.image}" alt="Image de l'ourson ${product.name}"/>`;
 
         // Insertion du nom du produit
         productName.textContent += `${product.name}`;

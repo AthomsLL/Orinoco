@@ -67,7 +67,8 @@ button:active {
 
 .section-products,
 .section-item, 
-.section-cart {
+.section-cart, 
+.section-order {
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -622,6 +623,51 @@ nav.navbar .navbar-toggler {
 .btn-form {
     font-size: 2.5rem;
     margin-top: 2rem;
+}
+
+
+/************************************************/
+/*************** MAIN ORDER.HTML ****************/
+/************************************************/
+.section-order {
+    background-color: rgba(243,233,241, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .15);
+    margin: 5rem auto;
+    padding: 3rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.order-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.section-order--title {
+    font-size: 5rem;
+    margin-bottom: 2.5rem;
+}
+
+.order__text {
+    font-size: 2.5rem;
+}
+
+#order-id, 
+#total-cost {
+    text-decoration: underline;
+}
+
+#order-id {
+    font-size: 3rem;
+}
+
+#total-cost {
+    font-size: 4rem;
 }
 
 
