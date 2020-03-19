@@ -12,37 +12,71 @@ export function postOrderToAPI() {
      // Déclaration d'un tableau de produits vide
      const products = [];
 
-     // Ajout de chaque produit présent dans le panier à l'array "product_id"
-    cart.forEach(item => {
-        products.push(item.id);
-    });
+     // Ajout de chaque produit présent dans le panier à l'array "products"
+    if(cart > 0) {
+        cart.forEach(item => {
+            products.push(item.id);
+        });
+    }
 
     // Evènement au clic sur le bouton "Valider la commande"
     btnValidateOrder.addEventListener('click', async () => {
 
-        // Récupération et stockage du formulaire dans une constante
-        const Form = document.getElementById('form');
-
+        // Récupération et stockage des input du formulaire
+        let firstName = document.getElementById('firstname');
+        let lastName = document.getElementById('name');
+        let address = document.getElementById('address');
+        let city = document.getElementById('city');
+        let email = document.getElementById('email');
+       
         // Récupération et stockage dans une variable du montant total de la commande
         let totalCost = document.querySelector('.cart-total-cost--text').innerHTML;
         
         // Création d'un objet "contact" contenant les informations du formulaire
         let contact = {
-            firstName: document.getElementById('firstname').value,
-            lastName: document.getElementById('name').value,
-            address: document.getElementById('address').value,
-            city: document.getElementById('city').value,
-            email: document.getElementById('email').value
+            "firstName": firstName.value,
+            "lastName": lastName.value,
+            "address": address.value,
+            "city": city.value,
+            "email": email.value
         }
 
         // Vérification que le formulaire est correctement rempli
-        if(Form.checkValidity() == false) {
-            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du formulaire :
+        if(firstName.checkValidity() == false) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du prénom :
             Swal.fire({
                 icon: 'error',
                 title: '',
-                text: "Merci de compléter le formulaire avant de confirmer votre commande.",
-              })
+                text: "Merci d'indiquer votre prénom avant de confirmer votre commande.",
+            }) 
+        } else if(lastName.checkValidity() == false) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du nom :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre nom avant de confirmer votre commande.",
+            })
+        } else if(address.checkValidity() == false) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'adresse :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre adresse complète avant de confirmer votre commande.",
+            })
+        } else if(city.checkValidity() == false) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de la ville :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre ville avant de confirmer votre commande.",
+            })
+        } else if(email.checkValidity() == false) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'email :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre email complet avant de confirmer votre commande.",
+            })
         } else {
             // Sinon envoi de la commande au serveur
             let postOrder = await fetchAPI('/teddies/order', 'POST', JSON.stringify({contact, products}));
@@ -52,8 +86,8 @@ export function postOrderToAPI() {
 
             // Création de l'objet à envoyer au sessionStorage
             let order = {
-                orderId: orderId,
-                totalCost: totalCost
+                "orderId": orderId,
+                "totalCost": totalCost
             }
 
             // Envoi de l'objet "order" au sessionStorage
@@ -63,7 +97,7 @@ export function postOrderToAPI() {
             localStorage.clear();
 
             setTimeout(() => {
-                // Redirection vers la page de confirmation de commande
+                // Redirection vers la page de confirmation de commande après 1 seconde
                 window.location = 'order.html';
             }, 1000);
         }

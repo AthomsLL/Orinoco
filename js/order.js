@@ -19,7 +19,6 @@ async function initOrder() {
     items.forEach((teddyBear) => {
         teddyBear = new TeddyBear(teddyBear._id, teddyBear.imageUrl, teddyBear.name, teddyBear.description, teddyBear.colors, teddyBear.price);
         teddyBears.push(teddyBear);
-        console.log(teddyBear);
     })
 
     let i = 0

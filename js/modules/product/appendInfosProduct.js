@@ -5,19 +5,28 @@ export function appendItemInfosInViewProduct(product) {
         let productName = document.getElementById('product-name');
         let productDescription = document.getElementById('product-description');
         let productPrice = document.getElementById('product-price');
+        let colorSelect = document.getElementById('color-select');
+        let colors = product.Colors;
 
         // Insertion de l'image du produit
-        productImg.innerHTML += `<img src="${product.image}" alt="Image de l'ourson ${product.name}"/>`;
+        productImg.innerHTML += `<img src="${product.Image}" alt="Image de l'ourson ${product.Name}"/>`;
 
         // Insertion du nom du produit
-        productName.textContent += `${product.name}`;
+        productName.textContent += `${product.Name}`;
 
         // Insertion de la description du produit
-        productDescription.textContent = `${product.description}`;
+        productDescription.textContent = `${product.Description}`;
+
+        // Insertion des couleurs disponibles du produit
+        for (let i = 0; i < colors.length; i++) {
+            colorSelect.innerHTML += 
+                `<option class="item__color-option" value="${colors[i]}">${colors[i]}</option>`;
+        }
 
         // Insertion du prix du produit 
-        productPrice.textContent = `${product.price / 100} €`;
-    }catch(err) {
+        productPrice.textContent = `${product.Price} €`;
+
+    } catch(err) {
         Swal.fire({
             icon: 'error',
             title: 'Oups...',

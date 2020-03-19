@@ -6,7 +6,7 @@ export function numberOfItemsInCart() {
     let itemsQty = document.querySelector('.cart-qty');
 
     // Si le localStorage ne contient rien, afficher "0"
-    if(cart == null || cart.length < 1) {
+    if(cart == null || cart.length == 0) {
         itemsQty.innerHTML = 0;
     } else {
         // Insertion de la quantité de produits dans le contenu de la div

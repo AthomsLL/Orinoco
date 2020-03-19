@@ -1,6 +1,5 @@
 // IMPORTS
 import {appendItemInfosInViewProduct} from './modules/product/appendInfosProduct.js';
-import {appendItemColorsInViewProduct} from './modules/product/appendColorsProduct.js';
 import {appendItemInViewDropdownMenu} from './modules/helpers/appendItemsToNav.js';
 import {numberOfItemsInCart} from './modules/helpers/nbItemsInCart.js';
 import {Id} from './modules/helpers/getUrlParamId.js';
@@ -22,7 +21,6 @@ async function initProduct() {
     items.forEach((teddyBear) => {
         teddyBear = new TeddyBear(teddyBear._id, teddyBear.imageUrl, teddyBear.name, teddyBear.description, teddyBear.colors, teddyBear.price);
         teddyBears.push(teddyBear);
-        console.log(teddyBear);
     })
 
     let product = await fetchAPI(`/teddies/${Id}`);
@@ -37,7 +35,6 @@ async function initProduct() {
     }
 
     appendItemInfosInViewProduct(teddyBear);
-    appendItemColorsInViewProduct(teddyBear);
     addCartToLocalStorage(teddyBear);
     numberOfItemsInCart();
 

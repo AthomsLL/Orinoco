@@ -6,10 +6,10 @@ export function appendItemInViewIndex(item) {
             <article class="card col-md-5">
                 <div class="card__side card__side--front">
                     <div class="card__picture">
-                        <img src="${item.image}" alt="Image de l'ourson ${item.name}">
+                        <img src="${item.Image}" alt="Image de l'ourson ${item.Name}">
                     </div>
                     <h3 class="card__heading">
-                        ${item.name}
+                        ${item.Name}
                     </h3>
                     <div class="card__details">
                         <ul>
@@ -23,9 +23,9 @@ export function appendItemInViewIndex(item) {
                     <div class="card__cta">
                         <div class="card__price-box">
                             <p class="card__price-only">Seulement</p>
-                            <p class="card__price-value">${item.price / 100} €</p>
+                            <p class="card__price-value">${item.Price} €</p>
                         </div>
-                        <a href="pages/product.html?id=${item.id}" class="btn btn-outline-danger">
+                        <a href="pages/product.html?id=${item.Id}" class="btn btn-outline-danger">
                             <i class="far fa-eye"></i>
                             Voir le produit
                         </a>

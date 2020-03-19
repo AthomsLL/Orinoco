@@ -1,7 +1,9 @@
 /* IMPORTS */
-import {cartItems} from './appendProductsToCartPage.js';
+import {getCartFromLocalStorage} from './getCartFromLocalStorage.js';
 
 export function deleteItemOnCart() {
+    let teddyBears = getCartFromLocalStorage();
+
     // Création d'un array contenant tous les produits affichés sur la page "Panier"
     const cartListItems = [...document.getElementsByClassName('cart__item-container')];
 
@@ -13,16 +15,16 @@ export function deleteItemOnCart() {
         const id = cartListItems[i].dataset.id;
         const color = cartListItems[i].dataset.color;
 
-        for(let n = 0; n < cartItems.length; n++) {
-            if(cartItems[n].id == id && cartItems[n].color == color) {
+        for(let n = 0; n < teddyBears.length; n++) {
+            if(teddyBears[n].id == id && teddyBears[n].color == color) {
                 let deleteIndex = n;
 
                 buttonsDelete[i].addEventListener("click", () => {
                     // On retire l'index du produit à supprimer
-                    cartItems.splice(deleteIndex, 1);
+                    teddyBears.splice(deleteIndex, 1);
         
                     // Puis on renvoie le panier mis à jour au localStorage
-                    localStorage.setItem("cart", JSON.stringify(cartItems));
+                    localStorage.setItem("cart", JSON.stringify(teddyBears));
         
                     // Affichage d'un message de confirmation de suppression
                     Swal.fire({
