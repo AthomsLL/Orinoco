@@ -41,43 +41,55 @@ export function postOrderToAPI() {
             "email": email.value
         }
 
+        let hasError = false;
+
         // Vérification que le formulaire est correctement rempli
-        if(firstName.checkValidity() == false) {
+        if(!firstName.checkValidity()) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du prénom :
             Swal.fire({
                 icon: 'error',
                 title: '',
                 text: "Merci d'indiquer votre prénom avant de confirmer votre commande.",
             }) 
-        } else if(lastName.checkValidity() == false) {
+            hasError = true;
+        } 
+        if (!lastName.checkValidity()) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du nom :
             Swal.fire({
                 icon: 'error',
                 title: '',
                 text: "Merci d'indiquer votre nom avant de confirmer votre commande.",
             })
-        } else if(address.checkValidity() == false) {
+            hasError = true;
+        } 
+        if (!address.checkValidity()) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'adresse :
             Swal.fire({
                 icon: 'error',
                 title: '',
                 text: "Merci d'indiquer votre adresse complète avant de confirmer votre commande.",
             })
-        } else if(city.checkValidity() == false) {
+            hasError = true;
+        }
+        if (!city.checkValidity()) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de la ville :
             Swal.fire({
                 icon: 'error',
                 title: '',
                 text: "Merci d'indiquer votre ville avant de confirmer votre commande.",
             })
-        } else if(email.checkValidity() == false) {
+            hasError = true;
+        }
+        if (!email.checkValidity()) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'email :
             Swal.fire({
                 icon: 'error',
                 title: '',
                 text: "Merci d'indiquer votre email complet avant de confirmer votre commande.",
             })
-        } else {
+            hasError = true;
+        }
+        if (!hasError) {
             // Sinon envoi de la commande au serveur
             let postOrder = await fetchAPI('/teddies/order', 'POST', JSON.stringify({contact, products}));
 

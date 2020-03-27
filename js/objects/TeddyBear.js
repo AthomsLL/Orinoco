@@ -46,6 +46,30 @@ export class TeddyBear {
         return this.color;
     }
 
+    set Id(id) {
+        this.id = id;
+    }
+
+    set Image(image) {
+        this.image = image;
+    }
+
+    set Name(name) {
+        this.name = name;
+    }
+
+    set Description(description) {
+        this.description = description;
+    }
+
+    set Colors(colors) {
+        this.colors = colors;
+    }
+
+    set Price(price) {
+        this.price = price;
+    }
+
     set Quantity(quantity) {
         this.quantity = quantity;
     }
@@ -54,3 +78,5 @@ export class TeddyBear {
         this.color = color;
     }
 }
+
+/* module.exports = TeddyBear; */

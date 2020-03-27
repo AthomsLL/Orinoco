@@ -9,7 +9,7 @@ export function getCartFromLocalStorage() {
     const teddyBears = [];
     
     // On crée un nouvel objet TeddyBear pour chaque produit présent dans le localStorage
-    if(cartItems.length > 0) {
+    if(cartItems) {
         for(let i = 0; i < cartItems.length; i++) {
             teddyBears.push(new TeddyBear(cartItems[i].id, cartItems[i].image, cartItems[i].name, cartItems[i].description, cartItems[i].colors, cartItems[i].price, cartItems[i].quantity, cartItems[i].color))        
         }
