@@ -1,5 +1,6 @@
 /* IMPORTS */
 import { fetchAPI } from "../fetchAPI.js";
+import * as Regex from '../helpers/regex.js';
 
 // Fonction permettant d'envoyer la commande au serveur
 export function postOrderToAPI() {
@@ -12,7 +13,7 @@ export function postOrderToAPI() {
      // Déclaration d'un tableau de produits vide
      const products = [];
 
-     // Ajout de chaque produit présent dans le panier à l'array "products"
+     // Ajout de chaque id de produit présent dans le panier à l'array "products"
     if(cart > 0) {
         cart.forEach(item => {
             products.push(item.id);
@@ -44,7 +45,7 @@ export function postOrderToAPI() {
         let hasError = false;
 
         // Vérification que le formulaire est correctement rempli
-        if(!firstName.checkValidity()) {
+        if (!Regex.nameRegex.test(firstName.value)) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du prénom :
             Swal.fire({
                 icon: 'error',
@@ -53,7 +54,7 @@ export function postOrderToAPI() {
             }) 
             hasError = true;
         } 
-        if (!lastName.checkValidity()) {
+        else if (!Regex.nameRegex.test(lastName.value)) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du nom :
             Swal.fire({
                 icon: 'error',
@@ -62,25 +63,7 @@ export function postOrderToAPI() {
             })
             hasError = true;
         } 
-        if (!address.checkValidity()) {
-            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'adresse :
-            Swal.fire({
-                icon: 'error',
-                title: '',
-                text: "Merci d'indiquer votre adresse complète avant de confirmer votre commande.",
-            })
-            hasError = true;
-        }
-        if (!city.checkValidity()) {
-            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de la ville :
-            Swal.fire({
-                icon: 'error',
-                title: '',
-                text: "Merci d'indiquer votre ville avant de confirmer votre commande.",
-            })
-            hasError = true;
-        }
-        if (!email.checkValidity()) {
+        else if (!Regex.emailRegex.test(email.value)) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'email :
             Swal.fire({
                 icon: 'error',
@@ -89,7 +72,25 @@ export function postOrderToAPI() {
             })
             hasError = true;
         }
-        if (!hasError) {
+        else if (!address.checkValidity()) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'adresse :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre adresse complète avant de confirmer votre commande.",
+            })
+            hasError = true;
+        }
+        else if (!Regex.cityRegex.test(city.value)) {
+            // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de la ville :
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Merci d'indiquer votre ville avant de confirmer votre commande.",
+            })
+            hasError = true;
+        }
+        else {
             // Sinon envoi de la commande au serveur
             let postOrder = await fetchAPI('/teddies/order', 'POST', JSON.stringify({contact, products}));
 

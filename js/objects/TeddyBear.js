@@ -78,5 +78,3 @@ export class TeddyBear {
         this.color = color;
     }
 }
-
-/* module.exports = TeddyBear; */

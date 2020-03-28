@@ -10,6 +10,9 @@
   "author": "Athoms LL",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-jest": "^25.2.3",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
