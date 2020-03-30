@@ -72,7 +72,7 @@ export function postOrderToAPI() {
             })
             hasError = true;
         }
-        else if (!address.checkValidity()) {
+        else if (!Regex.addressRegex.test(address.value)) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage de l'adresse :
             Swal.fire({
                 icon: 'error',

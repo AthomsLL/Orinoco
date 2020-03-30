@@ -16,7 +16,7 @@ export async function fetchAPI(endpoint, method='GET', body=null) {
     let jsonResponse = await response.json();
     console.log("donnees api", jsonResponse);
     return jsonResponse;
-   }catch(err) {
+   } catch(err) {
         Swal.fire({
             icon: 'error',
             title: 'Oups une erreur est survenue.',

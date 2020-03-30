@@ -1,5 +1,6 @@
 import {TeddyBear} from '../js/objects/TeddyBear.js';
 
+// Pack de tests concernant la classe TeddyBear
 describe('Pack TeddyBear tests', () => {
 
     // On vérifie que l'id du produit est bien sauvegardé
@@ -78,6 +79,13 @@ describe('Pack TeddyBear tests', () => {
         expect(teddyBear.Description).toBe("Salut je suis la nouvelle description");
     });
 
+    // On vérifie que l'on peut donner une nouvelle couleur au produit
+    test("check if new TeddyBear's color should set", () => {
+        let teddyBear = new TeddyBear("23", "image.png", "Robert", "Coucou", ["red", "blue", "green"], 2900, 0)
+        teddyBear.ChosenColor = "Indigo";
+        expect(teddyBear.Color).toBe("Indigo");
+    });
+
     // On vérifie que l'on peut donner un nouveau prix au produit
     test("check if new TeddyBear's price should set", () => {
         let teddyBear = new TeddyBear("23", "image.png", "Robert", "Coucou", ["red", "blue", "green"], 2900, 0)
@@ -90,13 +98,6 @@ describe('Pack TeddyBear tests', () => {
         let teddyBear = new TeddyBear("23", "image.png", "Robert", "Coucou", ["red", "blue", "green"], 2900, 0)
         teddyBear.Quantity = 4;
         expect(teddyBear.Quantity).toBe(4);
-    });
-
-    // On vérifie que l'on peut donner une nouvelle couleur au produit
-    test("check if new TeddyBear's color should set", () => {
-        let teddyBear = new TeddyBear("23", "image.png", "Robert", "Coucou", ["red", "blue", "green"], 2900, 0)
-        teddyBear.ChosenColor = "Indigo";
-        expect(teddyBear.Color).toBe("Indigo");
     });
 })
 

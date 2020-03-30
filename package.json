@@ -7,6 +7,10 @@
     "start": "node server.js",
     "test": "jest"
   },
+  "jest": {
+    "automock": false,
+    "setupFiles": ["./setupJest.js"]
+  },
   "author": "Athoms LL",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +21,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jest": "^25.1.0",
+    "jest-fetch-mock": "^3.0.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.8",
     "mongoose-unique-validator": "^2.0.2",
