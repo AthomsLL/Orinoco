@@ -44,8 +44,18 @@ export function postOrderToAPI() {
 
         let hasError = false;
 
+        // Vérification si le panier est vide
+        if (!cart) {
+            // Si c'est le cas, on affiche un message pour demander d'ajouter au moins un produit
+            Swal.fire({
+                icon: 'error',
+                title: '',
+                text: "Aucun produit n'est présent dans votre panier ! Merci d'ajouter au moins un ours.",
+            }) 
+            hasError = true;
+        }
         // Vérification que le formulaire est correctement rempli
-        if (!Regex.nameRegex.test(firstName.value)) {
+        else if (!Regex.nameRegex.test(firstName.value)) {
             // Si ce n'est pas le cas, on affiche un message pour demander le remplissage du prénom :
             Swal.fire({
                 icon: 'error',

@@ -3,7 +3,7 @@ export function sendCartToLocalStorage(object) {
         // Stockage du contenu du localStorage dans une variable "cart", si le contenu du localStorage est vide, crée un array vide
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // Condition pour véirifer si le panier est vide
+        // Condition pour vérifier si le panier est vide
         if(!cart) {
 
             // Insertion des informations du produit au localStorage
