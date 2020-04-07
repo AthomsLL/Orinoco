@@ -14,7 +14,7 @@ const boolean = regex.test(postalCode) ? 'YES' : 'WRONG';
 export const nameRegex = /^([a-zA-Z\u00C0-\u00FF]+([\s'-.]?)[a-zA-Z\u00C0-\u00FF]+)$/;
 
 // Regex pour la vérification de l'adresse
-export const addressRegex = /^[a-zA-Z0-9\s,'-]*$/;
+export const addressRegex = /^([a-zA-Z0-9\u00C0-\u00FF\s',.]+)([a-zA-Z\u00C0-\u00FF\s',.-]+)$/;
 
 // Regex pour la vérification de la ville
 export const cityRegex = /^([a-zA-Z\u00C0-\u00FF]+([\s'-.]?)[a-zA-Z\u00C0-\u00FF]+)$/;
